@@ -84,6 +84,371 @@
     .ios-coming-soon span { display: block; }
     .ios-coming-soon strong { display: block; font-size: .9rem; line-height: 1.2; }
     .ios-coming-soon small { display: block; color: var(--muted); font-size: .75rem; line-height: 1.2; }
+    .video-card { margin: 0 auto 24px; }
+    .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 14px; background: #17121f; }
+    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 22px;
+      padding: clamp(18px, 4vw, 32px); box-shadow: 0 16px 45px #31115c0b;
+    }
+    .card-heading { margin: 0 0 5px; font-size: 1.35rem; letter-spacing: -.025em; }
+    .card-intro { color: var(--muted); margin: 0 0 24px; font-size: .94rem; }
+    .section-title {
+      font-size: .85rem; color: var(--purple-dark); font-weight: 800; letter-spacing: .07em;
+      text-transform: uppercase; margin: 26px 0 14px; padding-bottom: 9px; border-bottom: 1px solid var(--border);
+    }
+    .section-title:first-of-type { margin-top: 0; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    label, .legend { display: block; font-weight: 700; font-size: .9rem; margin-bottom: 7px; }
+    .optional { font-weight: 400; color: var(--muted); font-size: .8rem; }
+    input, select, textarea {
+      width: 100%; border: 1px solid #d9d1e5; border-radius: 11px; padding: 12px 13px;
+      background: white; color: var(--ink); font: inherit; font-size: .95rem; outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--purple); box-shadow: 0 0 0 3px #6d28d91a; }
+    textarea { resize: vertical; min-height: 90px; }
+    fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+    .choices { display: flex; flex-wrap: wrap; gap: 9px; }
+    .choice { position: relative; }
+    .choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .choice span {
+      display: inline-flex; align-items: center; padding: 9px 12px; border: 1px solid var(--border);
+      border-radius: 999px; cursor: pointer; font-size: .88rem; background: white;
+      transition: .15s;
+    }
+    .choice input:checked + span { background: var(--purple-light); border-color: var(--purple); color: var(--purple-dark); font-weight: 750; }
+    .choice input:focus-visible + span { outline: 3px solid #6d28d955; }
+    .consent { display: flex; align-items: flex-start; gap: 10px; margin: 24px 0 18px; color: var(--muted); font-size: .85rem; }
+    .consent input { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 2px; accent-color: var(--purple); }
+    .consent label { font-weight: 400; margin: 0; }
+    .submit {
+      width: 100%; border: 0; border-radius: 12px; padding: 15px 18px; cursor: pointer;
+      background: linear-gradient(135deg, #7c3aed, #5b21b6); color: white; font: inherit;
+      font-weight: 800; font-size: 1rem; box-shadow: 0 8px 18px #6d28d92b;
+    }
+    .submit:hover { filter: brightness(1.04); }
+    .submit:focus-visible { outline: 3px solid #a78bfa; outline-offset: 3px; }
+    .hint { margin: 12px 0 0; color: var(--muted); text-align: center; font-size: .82rem; }
+    .notice { margin-top: 18px; padding: 13px 14px; border-radius: 12px; background: #f5f3ff; color: #51416b; font-size: .85rem; }
+    .status { display: none; margin-top: 18px; padding: 16px; border-radius: 12px; background: #f0fdf4; color: var(--success); }
+    .status.show { display: block; }
+    footer { text-align: center; padding: 20px 16px 30px; color: var(--muted); font-size: .85rem; }
+    footer strong { color: var(--purple-dark); }
+    @media (max-width: 600px) {
+      main { padding-top: 23px; }
+      .grid { grid-template-columns: 1fr; gap: 14px; }
+      .field.full { grid-column: auto; }
+      .card { border-radius: 17px; }
+      .topbar { padding: 14px 17px; }
+    }
+  </style>
+</head>
+<body>
+  <img class="top-banner" src="1.png" alt="JobZinda">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">J</div>
+      <div>JobZinda</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Join our community • ഞങ്ങളുടെ കൂട്ടായ്മയിൽ ചേരൂ</div>
+      <h1>Your Skills. Your <span>Opportunities.</span> Your Future.<br><span style="font-size:.58em;letter-spacing:-.025em">നിങ്ങളുടെ കഴിവുകൾ. നിങ്ങളുടെ അവസരങ്ങൾ. നിങ്ങളുടെ ഭാവി.</span></h1>
+      <p>Are you a job seeker, freelancer, promoter, or service provider? Tell us about yourself and take the first step towards opportunities with JobZinda.<br><span lang="ml">നിങ്ങൾ ജോലി അന്വേഷിക്കുന്നയാളാണോ, ഫ്രീലാൻസറാണോ, പ്രൊമോട്ടറാണോ, സേവനദാതാവാണോ? നിങ്ങളെക്കുറിച്ചുള്ള വിവരങ്ങൾ നൽകി ജോബ്സിന്ദയോടൊപ്പം പുതിയ അവസരങ്ങളിലേക്ക് ആദ്യ ചുവടുവെയ്ക്കൂ.</span></p>
+      <div class="app-links">
+        <a class="app-download" href="https://play.google.com/store/apps/details?id=com.jobZinda.customers&amp;pcampaignid=web_share" target="_blank" rel="noopener noreferrer">Download the JobZinda App <span aria-hidden="true">&darr;</span></a>
+        <div class="ios-coming-soon" aria-label="JobZinda for iOS, coming soon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5"></rect><path d="M10 18.5h4"></path></svg>
+          <span><strong>iOS</strong><small>Coming soon</small></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card video-card" aria-labelledby="video-title">
+      <h2 class="card-heading" id="video-title">Discover JobZinda</h2>
+      <div class="video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/fLjozG0YlYU" title="Discover JobZinda on YouTube" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="form-title">
+      <h2 class="card-heading" id="form-title">Join JobZinda • ജോബ്സിന്ദയിൽ ചേരൂ</h2>
+      <p class="card-intro">Complete the form below. Fields marked optional can be skipped.<br><span lang="ml">താഴെയുള്ള ഫോം പൂരിപ്പിക്കുക. (Optional) എന്ന് നൽകിയിരിക്കുന്ന വിവരങ്ങൾ നിർബന്ധമല്ല.</span></p>
+
+      <form id="leadForm">
+        <div class="section-title">1. Personal information • വ്യക്തിഗത വിവരങ്ങൾ</div>
+        <div class="grid">
+          <div class="field">
+            <label for="name">Full name • പൂർണ്ണ പേര് *</label>
+            <input id="name" name="name" autocomplete="name" required maxlength="100" placeholder="Enter your full name">
+          </div>
+          <div class="field">
+            <label for="age">Age • വയസ്സ് *</label>
+            <input id="age" name="age" type="number" min="16" max="100" required placeholder="Your age">
+          </div>
+          <div class="field">
+            <label for="phone">Mobile number • മൊബൈൽ നമ്പർ *</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="20" placeholder="Your contact number">
+          </div>
+          <div class="field">
+            <label for="email">Email • ഇമെയിൽ <span class="optional">(optional / നിർബന്ധമില്ല)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="district">District • ജില്ല *</label>
+            <input id="district" name="district" required maxlength="80" placeholder="e.g. Palakkad">
+          </div>
+          <div class="field">
+            <label for="location">Town / Location • സ്ഥലം <span class="optional">(optional / നിർബന്ധമില്ല)</span></label>
+            <input id="location" name="location" maxlength="100" placeholder="Your town or locality">
+          </div>
+          <div class="field">
+            <label for="referralName">Referral name • ശുപാർശ ചെയ്ത വ്യക്തിയുടെ പേര് <span class="optional">(optional / നിർബന്ധമില്ല)</span></label>
+            <input id="referralName" name="referralName" maxlength="100" placeholder="Name of the person who referred you">
+          </div>
+          <div class="field">
+            <label for="referralPhone">Referral phone number • ശുപാർശ ചെയ്ത വ്യക്തിയുടെ ഫോൺ നമ്പർ <span class="optional">(optional / നിർബന്ധമില്ല)</span></label>
+            <input id="referralPhone" name="referralPhone" type="tel" maxlength="20" placeholder="Their contact number">
+          </div>
+        </div>
+
+        <div class="section-title">2. Education and skills • വിദ്യാഭ്യാസവും കഴിവുകളും</div>
+        <div class="grid">
+          <div class="field">
+            <label for="education">Highest education • വിദ്യാഭ്യാസ യോഗ്യത *</label>
+            <select id="education" name="education" required>
+              <option value="">Select qualification</option>
+              <option>Below SSLC</option><option>SSLC</option><option>Plus Two</option>
+              <option>ITI</option><option>Diploma</option><option>Undergraduate</option>
+              <option>Postgraduate</option><option>Professional qualification</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="specialization">Course / Specialization • പഠിച്ച കോഴ്‌സ് <span class="optional">(optional / നിർബന്ധമില്ല)</span></label>
+            <input id="specialization" name="specialization" maxlength="100" placeholder="e.g. B.Com, Graphic Design">
+          </div>
+          <div class="field full">
+            <label for="skills">Your skills • നിങ്ങളുടെ കഴിവുകൾ *</label>
+            <textarea id="skills" name="skills" required maxlength="1000" placeholder="e.g. video editing, graphic design, teaching, coding, sales"></textarea>
+          </div>
+          <div class="field">
+            <label for="experience">Experience • പ്രവൃത്തിപരിചയം *</label>
+            <select id="experience" name="experience" required>
+              <option value="">Select experience</option><option>Fresher</option><option>Less than 1 year</option>
+              <option>1–3 years</option><option>3+ years</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="languages">Languages known • അറിയാവുന്ന ഭാഷകൾ <span class="optional">(optional / നിർബന്ധമില്ല)</span></label>
+            <input id="languages" name="languages" maxlength="150" placeholder="e.g. Malayalam, English, Hindi">
+          </div>
+        </div>
+
+        <div class="section-title">3. How would you like to join? • ഏത് രീതിയിലാണ് ചേരാൻ ആഗ്രഹിക്കുന്നത്?</div>
+        <fieldset>
+          <legend class="legend">Choose one or more • ഒന്നോ അതിലധികമോ തിരഞ്ഞെടുക്കുക *</legend>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="joinAs" value="Job Seeker"><span>Job Seeker • ജോലി അന്വേഷിക്കുന്നു</span></label>
+            <label class="choice"><input type="checkbox" name="joinAs" value="Freelancer"><span>Freelancer • ഫ്രീലാൻസർ</span></label>
+            <label class="choice"><input type="checkbox" name="joinAs" value="Zinda Promoter"><span>Zinda Promoter • സിന്ദ പ്രൊമോട്ടർ</span></label>
+            <label class="choice"><input type="checkbox" name="joinAs" value="Service Provider"><span>Service Provider • സേവനദാതാവ്</span></label>
+            <label class="choice"><input type="checkbox" name="joinAs" value="Course Instructor"><span>Course Instructor • പരിശീലകൻ</span></label>
+            <label class="choice"><input type="checkbox" name="joinAs" value="Business Partner"><span>Business Partner • ബിസിനസ് പങ്കാളി</span></label>
+            <label class="choice"><input type="checkbox" name="joinAs" value="Other"><span>Other • മറ്റുള്ളവ</span></label>
+          </div>
+        </fieldset>
+
+        <div class="section-title">4. Work preferences • ജോലി താൽപര്യങ്ങൾ</div>
+        <fieldset>
+          <legend class="legend">What opportunities interest you? • നിങ്ങൾക്ക് താൽപര്യമുള്ള അവസരങ്ങൾ <span class="optional">(choose any / ഒന്നിലധികം തിരഞ്ഞെടുക്കാം)</span></legend>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="preference" value="Full-time"><span>Full-time • ഫുൾ ടൈം</span></label>
+            <label class="choice"><input type="checkbox" name="preference" value="Part-time"><span>Part-time • പാർട്ട് ടൈം</span></label>
+            <label class="choice"><input type="checkbox" name="preference" value="Freelance projects"><span>Freelance projects • ഫ്രീലാൻസ് ജോലികൾ</span></label>
+            <label class="choice"><input type="checkbox" name="preference" value="Work from home"><span>Work from home • വീട്ടിലിരുന്ന് ജോലി</span></label>
+            <label class="choice"><input type="checkbox" name="preference" value="Online opportunities"><span>Online opportunities • ഓൺലൈൻ അവസരങ്ങൾ</span></label>
+            <label class="choice"><input type="checkbox" name="preference" value="Teaching / training"><span>Teaching / training • അധ്യാപനം / പരിശീലനം</span></label>
+          </div>
+        </fieldset>
+
+        <div class="grid" style="margin-top:18px">
+          <div class="field full">
+            <label for="extra">Additional information • കൂടുതൽ വിവരങ്ങൾ <span class="optional">(optional / നിർബന്ധമില്ല)</span></label>
+            <textarea id="extra" name="extra" maxlength="1000" placeholder="Anything else you would like us to know"></textarea>
+          </div>
+        </div>
+
+        <div class="consent">
+          <input id="consent" name="consent" type="checkbox" required>
+          <label for="consent">I agree that JobZinda may use these details to review my interest and contact me about relevant opportunities. I understand that submitting this form does not guarantee a job or earnings.<br><span lang="ml">എന്റെ താൽപര്യം പരിശോധിക്കാനും അനുയോജ്യമായ അവസരങ്ങളെക്കുറിച്ച് ബന്ധപ്പെടാനും ജോബ്സിന്ദയ്ക്ക് ഈ വിവരങ്ങൾ ഉപയോഗിക്കാമെന്ന് ഞാൻ സമ്മതിക്കുന്നു. ഫോം സമർപ്പിക്കുന്നത് ജോലി അല്ലെങ്കിൽ വരുമാനം ഉറപ്പുനൽകുന്നില്ലെന്ന് ഞാൻ മനസ്സിലാക്കുന്നു.</span></label>
+        </div>
+
+        <button class="submit" type="submit">Join JobZinda via WhatsApp • വാട്സ്ആപ്പ് വഴി ചേരൂ &rarr;</button>
+        <p class="hint">WhatsApp will open with your details prepared. Tap <strong>Send</strong> there to send your registration.<br><span lang="ml">നിങ്ങളുടെ വിവരങ്ങൾ വാട്സ്ആപ്പിൽ തയ്യാറായി തുറക്കും. രജിസ്ട്രേഷൻ അയയ്ക്കാൻ അവിടെ <strong>Send</strong> അമർത്തുക.</span></p>
+        <div class="notice">Your information is placed into a WhatsApp message for you to send. This page does not save submissions to a database.<br><span lang="ml">നിങ്ങൾ അയയ്ക്കുന്നതിനായി വിവരങ്ങൾ വാട്സ്ആപ്പ് സന്ദേശത്തിൽ ചേർക്കുന്നതാണ്. ഈ പേജ് വിവരങ്ങൾ ഡാറ്റാബേസിൽ സൂക്ഷിക്കുന്നില്ല.</span></div>
+        <div class="status" id="status" role="status" aria-live="polite">
+          <strong>WhatsApp opened in a new step.</strong><br>
+          If WhatsApp did not open, check your browser's pop-up settings or use the button below.
+          <p><a id="retryLink" href="#" target="_blank" rel="noopener noreferrer">Open WhatsApp message</a></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer><strong>JobZinda</strong><br>Where Skills Meet Opportunities.<br><span lang="ml">കഴിവുകൾക്ക് അവസരങ്ങൾ ലഭിക്കുന്നിടം.</span></footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "919847561998"; // India country code + your number, digits only
+    const form = document.getElementById("leadForm");
+    const statusBox = document.getElementById("status");
+    const retryLink = document.getElementById("retryLink");
+    let latestWhatsAppUrl = "";
+
+    function getValue(id) {
+      return document.getElementById(id).value.trim() || "Not provided";
+    }
+    function getChecked(name) {
+      const values = [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(el => el.value);
+      return values.length ? values.join(", ") : "Not selected";
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      if (!document.querySelector('input[name="joinAs"]:checked')) {
+        alert("Please choose at least one way you would like to join JobZinda.");
+        document.querySelector('input[name="joinAs"]').focus();
+        return;
+      }
+
+      const message = [
+        "🎉 *New JobZinda Lead*",
+        "",
+        "👤 Name: " + getValue("name"),
+        "🎂 Age: " + getValue("age"),
+        "📱 Mobile: " + getValue("phone"),
+        "👥 Referral name: " + getValue("referralName"),
+        "📞 Referral phone: " + getValue("referralPhone"),
+        "✉️ Email: " + getValue("email"),
+        "📍 District: " + getValue("district"),
+        "🏠 Location: " + getValue("location"),
+        "🎓 Education: " + getValue("education"),
+        "📚 Specialization: " + getValue("specialization"),
+        "🛠️ Skills: " + getValue("skills"),
+        "💼 Experience: " + getValue("experience"),
+        "🗣️ Languages: " + getValue("languages"),
+        "🤝 Interested in: " + getChecked("joinAs"),
+        "⏰ Work preferences: " + getChecked("preference"),
+        "📝 Additional information: " + getValue("extra"),
+        "",
+        "Source: JobZinda Join Us Website"
+      ].join("\n");
+
+      latestWhatsAppUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+      retryLink.href = latestWhatsAppUrl;
+      statusBox.classList.add("show");
+
+      // Open synchronously from the form's user action to reduce popup blocking.
+      const newWindow = window.open(latestWhatsAppUrl, "_blank", "noopener,noreferrer");
+      if (!newWindow) {
+        // The visible retry link remains available if the browser blocks the new tab.
+        statusBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    });
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6d28d9">
+  <title>Join JobZinda | ജോബ്സിന്ദയിൽ ചേരൂ</title>
+  <style>
+    :root {
+      --purple: #6d28d9;
+      --purple-dark: #4c1d95;
+      --purple-light: #f3e8ff;
+      --ink: #211a2d;
+      --muted: #6b6475;
+      --border: #e7e1ef;
+      --surface: #ffffff;
+      --bg: #ffffff;
+      --success: #166534;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, "Noto Sans Malayalam", "Nirmala UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    .top-banner {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin: 0 auto;
+    }
+    .topbar {
+      padding: 18px 22px;
+      background: rgba(255,255,255,.9);
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      max-width: 1040px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 1.25rem;
+      font-weight: 850;
+      letter-spacing: -.04em;
+      color: var(--purple-dark);
+    }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, #7c3aed, #4c1d95);
+      color: white; font-weight: 900; font-size: 1.1rem;
+      box-shadow: 0 5px 14px #6d28d933;
+    }
+    main { max-width: 850px; margin: 0 auto; padding: 34px 16px 50px; }
+    .hero { text-align: center; padding: 10px 10px 25px; }
+    .eyebrow {
+      display: inline-block; background: var(--purple-light); color: var(--purple-dark);
+      padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 750;
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+    h1 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.08; letter-spacing: -.055em; margin: 16px 0 12px; }
+    h1 span { color: var(--purple); }
+    .hero p { color: var(--muted); max-width: 620px; margin: 0 auto; font-size: 1.02rem; }
+    .app-download {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      margin-top: 20px; padding: 12px 20px; border-radius: 999px;
+      background: var(--purple); color: white; font-weight: 750; text-decoration: none;
+      box-shadow: 0 6px 18px #6d28d933; transition: background .15s, transform .15s;
+    }
+    .app-download:hover { background: var(--purple-dark); transform: translateY(-1px); }
+    .app-download:focus-visible { outline: 3px solid #6d28d955; outline-offset: 3px; }
+    .app-download > span { font-size: 20px; line-height: 1; }
+    .app-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; }
+    .ios-coming-soon {
+      display: inline-flex; align-items: center; gap: 9px; margin-top: 20px; padding: 10px 16px;
+      border: 1px solid var(--border); border-radius: 999px; background: white; color: var(--ink);
+      text-align: left;
+    }
+    .ios-coming-soon svg { width: 20px; height: 20px; flex: 0 0 20px; color: var(--purple-dark); }
+    .ios-coming-soon span { display: block; }
+    .ios-coming-soon strong { display: block; font-size: .9rem; line-height: 1.2; }
+    .ios-coming-soon small { display: block; color: var(--muted); font-size: .75rem; line-height: 1.2; }
     .card {
       background: var(--surface); border: 1px solid var(--border); border-radius: 22px;
       padding: clamp(18px, 4vw, 32px); box-shadow: 0 16px 45px #31115c0b;
